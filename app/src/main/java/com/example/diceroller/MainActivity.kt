@@ -16,39 +16,26 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvDice: TextView
-    private lateinit var button: Button
-    private lateinit var cvDice: CardView
-
+    // add global variables here
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupUi()
-        setOnClickListener()
+        // setup views functionality here
     }
 
     private fun setOnClickListener() {
-        button = findViewById(R.id.btn_roll)
-        button.setOnClickListener {
-            setDiceNumber()
-        }
+
     }
 
     private fun setDiceNumber() {
-        val number = (1..6).random()
-        cvDice.animate().rotationBy((((10..360).random().toFloat()) * (30..60).random()))
-            .setDuration(1000L)
-            .setInterpolator(AccelerateDecelerateInterpolator())
-            .start()
+        val number = (1..6).random() // use this random generated number
+        // animate and rotate the view here
 
-        Handler(Looper.getMainLooper()).postDelayed(Runnable {
-               tvDice.text = number.toString()
-        }, 500L)
+        // set dice text here through handler
     }
 
     private fun setupUi() {
-        tvDice = findViewById(R.id.tv_dice)
-        cvDice = findViewById(R.id.cv_dice)
+        // fina Views By Ids here
     }
 }
